@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="ui-g-12">  
+      <h2>Employee Skills Application</h2>
+      <p-toolbar class="ui-g-12">
+        <div class="ui-toolbar-group-left">
+
+          <button pButton label="Employees List" [routerLink]="['employees']" icon="pi pi-fw pi-list" style="margin-left:.25em"></button>
+          <button pButton label="Create New" [routerLink]="['employee/add']" icon="pi pi-fw pi-plus" style="margin-left:.25em"></button>
+         
+      </div>
+        
+        <div class="ui-toolbar-group-right">
+          <input type="text" pInputText placeholder="Search">
+            <button pButton label="Logout" icon="fa fa-sign-out" style="margin-left:.25em"></button>
+        </div>
+    </p-toolbar>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<h3>Add Employee</h3>
+<div [hidden]="submitted">
+    <form #addEmployeeForm="ngForm">
+
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" required
+        [(ngModel)]="employee.firstname" name="firstname" #firstname="ngModel">
+        <div [hidden]="firstname.valid || firstname.pristine"
+             class="alert alert-danger">
+            First Name is required
+        </div>
+      </div>
+      
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" required
+        [(ngModel)]="employee.lastname" name="lastname" #lastname="ngModel">
+        <div [hidden]="lastname.valid || lastname.pristine"
+             class="alert alert-danger">
+            Last Name is required
+        </div>
+      </div>
+      
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" required
+        [(ngModel)]="employee.age" name="age" #age="ngModel">
+        <div [hidden]="age.valid || age.pristine"
+             class="alert alert-danger">
+            Age is required
+        </div>
+      </div>
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" 
+        [(ngModel)]="employee.contactEmail" name="email" #contactEmail="ngModel">
+      </div>
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="companyEmail">Company Email</label>
+        <input type="text" class="form-control" id="companyEmail" 
+        [(ngModel)]="employee.companyEmail" name="companyEmail" #companyEmail="ngModel">
+      </div>
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="businessUnit">Business Unit</label>
+        <input type="text" class="form-control" id="businessUnit" 
+        [(ngModel)]="employee.businessUnit" name="businessUnit" #businessUnit="ngModel">
+      </div>
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="birthDate" class="ui-g-12">Date of Birth</label>
+        <p-calendar [(ngModel)]="employee.birthDate" [showIcon]="true" id="birthDate" name="birthDate" #birthDate="ngModel"></p-calendar>
+      </div>
+      <div class="form-group" class="ui-g-6 ui-sm-12">
+        <label for="hiredDate" class="ui-g-12">Hire Date</label>
+        <p-calendar [(ngModel)]="employee.hiredDate" [style]="{'minWidth':'100%'}" class="ui-g-12" [showIcon]="true" id="hiredDate" name="hiredDate" #hiredDate="ngModel"></p-calendar>
+      </div>
+      
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="addEmployee()" [disabled]="!addEmployeeForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light">{{employee.firstname}}  {{employee.lastname}}</span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    	<button type="button" class="btn btn-dark" (click)="newEmployee(); addEmployeeForm.reset()">Continue</button>
+    </div>
+</div>
